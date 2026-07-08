@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 861.08 202.77">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        font-family: PlayfairDisplay-Regular, 'Playfair Display';
+        font-size: 185.18px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.01em;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <text class="cls-3" transform="translate(1.29 158.14)"><tspan class="cls-5" x="0" y="0">A</tspan><tspan x="111.11" y="0">ur</tspan><tspan class="cls-8" x="301.1" y="0">a</tspan><tspan x="391.1" y="0"> </tspan><tspan class="cls-7" x="437.21" y="0">G</tspan><tspan class="cls-4" x="566.46" y="0">l</tspan><tspan class="cls-6" x="617.57" y="0">o</tspan><tspan class="cls-1" x="717.75" y="0">w</tspan></text>
+      <path class="cls-2" d="m690.51,112c-14.32,4.51-17.16,8.17-20.66,26.61-3.51-18.44-6.35-22.1-20.66-26.61,14.32-4.51,17.16-8.18,20.66-26.61,3.51,18.44,6.35,22.1,20.66,26.61Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+[
+  {
+    "nombre": "Gel Limpiador Foaming Cleanser 236ml Cerave",
+    "marca": "Cerave",
+    "precio": "S/. 69.90",
+    "link": "limpieza.html",
+    "imagen": "img/productos/limpieza/cerave_limpiador.webp"
+  },
+  {
+    "nombre": "Pack Hydro Boost Refill x2 Neutrogena",
+    "marca": "Neutrogena",
+    "precio": "S/. 72.90",
+    "link": "limpieza.html",
+    "imagen": "img/productos/limpieza/neutrogena_refill.webp"
+  },
+  {
+    "nombre": "Gel Limpiador Effaclar Pieles Mixtas a Grasas 400ml La Roche Posay",
+    "marca": "La Roche Posay",
+    "precio": "S/. 100.90",
+    "link": "limpieza.html",
+    "imagen": "img/productos/limpieza/laroche_effaclar.webp"
+  },
+  {
+    "nombre": "Agua Micelar Sensibio H2O Piel Sensible 500 ml Bioderma",
+    "marca": "Bioderma",
+    "precio": "S/. 104.90",
+    "link": "limpieza.html",
+    "imagen": "img/productos/limpieza/bioderma_sensibio.webp"
+  },
+  {
+    "nombre": "Hidratante facial Hydro Boost 50gr Neutrogena",
+    "marca": "Neutrogena",
+    "precio": "S/. 42.90",
+    "link": "limpieza.html",
+    "imagen": "img/productos/limpieza/neutrogena_hydroboost.webp"
+  }
+]

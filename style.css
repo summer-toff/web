@@ -1,0 +1,2771 @@
+:root {
+    --color-navy: #1E2B4B;         /* Azul oscuro de los textos y logo */
+    --color-rosa-bg: #FDF0F1;      /* Fondo rosa del menú inferior */
+    --color-rosa-punto: #FF9AA2;   /* Punto rosa de los anuncios */
+    --color-gris-texto: #6B7280;   /* Gris para textos secundarios */
+    --color-gris-input: #F9F9FA;   /* Fondo del buscador */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    background-color: #ffffff;
+}
+/* ==========================================================================
+   CABECERA FIJA
+   ========================================================================== */
+.sitio-header {
+    position: sticky;           /* Hace que la cabecera actúe como un imán al bajar */
+    top: 0;                     /* se engancha exactamente al borde superior de la pantalla */
+    z-index: 1000;              /* evita que las fotos o el carrusel pasen por encima del menú */
+    background-color: #ffffff;  /* Mantiene el fondo blanco e impide que sea transparente */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.162); /* sombra suave*/
+}
+
+/* ==========================================================================
+   BARRA SUPERIOR DE ANUNCIOS SkinTest y Envíos Gratis
+   ========================================================================== */
+.barra-superior {
+    border-bottom: 1px solid #E5E7EB;
+    background-color: #ffffff;
+}
+
+.contenedor-anuncio {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0.6rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.anuncio-texto {
+    color: var(--color-gris-texto);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.punto-rosa {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-rosa-punto);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.anuncio-enlaces {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.anuncio-enlaces a {
+    color: var(--color-gris-texto);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.anuncio-enlaces a:hover {
+    color: var(--color-navy);
+}
+
+/* ==========================================================================
+   2. BARRA PRINCIPAL (Logo, Buscador, Iconos)
+   ========================================================================== */
+.barra-principal {
+    background-color: #ffffff;
+    padding: 1.5rem 0;
+}
+
+.contenedor-principal {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.logo-enlace {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo-svg {
+    height: 35px;       
+    width: auto;  /* Evita que el logo se deforme */
+    display: block;
+}
+
+/* Buscador Ovalado */
+.bloque-buscador {
+    flex: 1;
+    max-width: 650px;
+}
+
+.formulario-busqueda {
+    position: relative;
+    width: 100%;
+}
+
+.input-busqueda {
+    width: 100%;
+    background-color: var(--color-gris-input);
+    border: 1px solid #F3F4F6;
+    border-radius: 9999px;
+    padding: 0.85rem 3rem 0.85rem 1.5rem;
+    font-size: 0.9rem;
+    outline: none;
+    color: var(--color-navy);
+}
+
+.input-busqueda::placeholder {
+    color: #9CA3AF;
+}
+
+.boton-busqueda {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--color-navy);
+    cursor: pointer;
+}
+
+/* Iconos al lado derecho */
+.bloque-iconos {
+    display: flex;
+    gap: 1.5rem;
+    flex-shrink: 0;
+}
+
+.icono-accion {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--color-navy);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icono-accion:hover {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   3. MENÚ DE NAVEGACIÓN ROSA (Categorías y Megamenús)
+   ========================================================================== */
+.navegacion-categorias {
+    background-color: var(--color-rosa-bg);
+    position: relative; 
+}
+
+.contenedor-menu {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.lista-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center; 
+    gap: 3rem;
+}
+
+.lista-menu > li {
+    position: static; /* hacee el megamenú ocupe toda la anchura de la pantalla */
+}
+
+.enlace-menu {
+    text-decoration: none;
+    color: var(--color-navy);
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1rem 0; 
+    position: relative; 
+}
+
+/* --- ANIMACIÓN DE LA LÍNEA INFERIOR --- */
+.enlace-menu::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-navy);
+    transform: scaleX(0); /* Empieza oculto desde el centro */
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+.lista-menu > li:hover .enlace-menu::after {
+    transform: scaleX(1); /* Se expande la línea al pasar el cursor */
+}
+
+.flecha {
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+}
+
+/* Gira la flecha cuando pasas el mouse por encima menú */
+.tiene-desplegable:hover .flecha {
+    transform: rotate(180deg);
+}
+
+/* --- COMPORTAMIENTO DESPLEGABLE MEGAMENÚ --- */
+.megamenu-desplegable {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    z-index: 100;
+    padding: 2.5rem 0;
+
+    /* Oculto por defecto con efecto suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+/* Muestra el megamenú al pasar el cursor */
+.tiene-desplegable:hover .megamenu-desplegable {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Cuadrícula de columnas interna */
+.grid-megamenu {
+    display: grid;
+    gap: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.grid-megamenu.col-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-megamenu.col-3 { grid-template-columns: repeat(3, 1fr); }
+
+.max-ancho-marcas {
+    max-width: 1000px; /* Hace el menú de marcas más centrado y compacto */
+}
+
+/* Estilos de las Columnas del menú */
+.columna-menu h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #F3F4F6;
+    letter-spacing: 0.02em;
+}
+/* Hace que los títulos principales cambien de color al pasar el cursor */
+.columna-menu h3:hover {
+    color: var(--color-rosa-punto);
+    cursor: pointer;                /* Hace que el cursor cambie a la manito */
+}
+
+/* Títulos sin enlaces secundarios ej. Necesidad, Productos Coreanos */
+.columna-menu h3.espacio-arriba {
+    margin-top: 1.5rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.columna-menu ul {
+    list-style: none;
+}
+
+.columna-menu ul li {
+    margin-bottom: 0.5rem;
+}
+
+.columna-menu ul li a {
+    text-decoration: none;
+    color: var(--color-gris-texto);
+    font-size: 0.88rem;
+    font-weight: 400;
+    display: inline-block; /*permite que el enlace se pueda mover*/
+    transition: all 0.25s ease; /*Hace que el cambio de color y el movimiento sean suaves*/
+}
+
+.columna-menu ul li a:hover {
+    color: var(--color-navy);
+    transform: translateX(5px); /* Mueve el texto 5 píxeles a la derecha en el eje X */
+}
+
+
+/* HERO CARRUSEL*/
+.seccion-hero {
+    max-width: 1300px;
+    margin: 2.5rem auto; /* Separa el banner del menú rosa y lo centra */
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.contenedor-carrusel {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Altura ideal y proporcionada según las imágenes */
+    border-radius: 24px; /* Bordes redondeados idénticos a tus capturas */
+    overflow: hidden; /* Oculta el banner que no está activo */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+/* Tira interna flex que se deslizará */
+.carrusel-tira {
+    display: flex;
+    width: 200%; /* Son 2 banners, por ende mide el 200% */
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Desplazamiento premium */
+}
+
+/* Cada slide individual */
+.banner-slide {
+    position: relative;
+    width: 50%; /* Cada uno toma la mitad del contenedor total (100% de la pantalla) */
+    height: 100%;
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente */
+    padding-left: 5%; /* Margen elegante desde la izquierda */
+}
+
+/* Imagen de fondo real solicitada */
+.banner-fondo-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    z-index: 1;
+}
+
+/* Capa sutil de oscurecimiento para asegurar la lectura del texto si la foto es clara */
+.banner-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    z-index: 2;
+}
+
+/* Caja de textos */
+.banner-contenido {
+    position: relative;
+    z-index: 3; /* Por encima de la foto de fondo */
+    max-width: 550px;
+    margin-top: -45px;
+}
+
+/* Pequeñas etiquetas superiores flotantes */
+.banner-tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 15px;   /*Baja un poco la etiqueta para que quede más integrada con el título */ 
+    margin-bottom: 1.5rem;  /* Mantiene la separación con el título de abajo */
+}
+
+.tag-azul {
+    background-color: rgba(226, 236, 249, 0.85);
+    color: #2F69C2;
+}
+
+.tag-verde {
+    background-color: rgba(226, 246, 236, 0.85);
+    color: #1B8354;
+}
+
+/* Título Serif elegante */
+.banner-contenido h2 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+}
+
+.banner-contenido p {
+    font-size: 0.95rem;
+    color: #4B5563; /* Gris intermedio legible */
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+    max-width: 460px;
+}
+
+/* Botón Ovalado Negro */
+.banner-boton {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background-color: var(--color-navy);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 50px; /* Completamente ovalado como tus fotos */
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.banner-boton:hover {
+    background-color: #151F37;
+    transform: translateY(-2px);
+}
+
+/* --- FLECHAS DE CONTROL --- */
+.flecha-ctrl {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-navy);
+    font-size: 0.95rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+}
+
+.flecha-ctrl:hover {
+    background-color: var(--color-navy);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.ctrl-izq { left: 20px; }
+.ctrl-der { right: 20px; }
+
+/* --- PUNTITOS INDICADORES (Diseño de Píldora/Círculo) --- */
+.carrusel-indicadores {
+    position: absolute;
+    bottom: 20px; /* Lo subimos un pelín para que flote con elegancia */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center; /* Centra el círculo y la píldora perfectamente en vertical */
+    gap: 0.5rem; /* Separación ideal entre los dos elementos */
+    z-index: 10;
+}
+
+.indicador-punto {
+    width: 8px; /* Tamaño del círculo inactivo */
+    height: 8px;
+    background-color: #A3B1CC; /* Gris azulado suave para el modo inactivo */
+    border-radius: 50%; /* Hace que el inactivo sea un círculo perfecto */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave al cambiar */
+}
+
+.indicador-punto.activo {
+    background-color: var(--color-navy); /* Azul oscuro Navy para el activo */
+    width: 24px; /* Se estira para formar la píldora horizontal */
+    height: 10px; /* Un poquito más grueso para dar balance */
+    border-radius: 9999px; /* Bordes completamente ovalados de punta a punta */
+}
+/* --- COLORES EXCLUSIVOS PARA EL BANNER DE LANEIGE --- */
+.slide-laneige .banner-contenido h2 {
+    color: #ffffff; /* El título ahora será blanco brillante */
+}
+
+.slide-laneige .banner-contenido p {
+    color: #E2E8F0; 
+}
+/* --- COLOR EXCLUSIVO PARA LA ETIQUETA DE CERAVE --- */
+.slide-cerave .tag-verde {
+    background-color: #E6F4EA; /* Un verde menta pastel muy limpio */
+    color: #53b2ff;            /* Un verde bosque corporativo y elegante */
+}
+/* Fin de carrusel */
+
+/* ==========================================================================
+   5. SECCIÓN CATEGORÍAS EN CÍRCULO (Ajustado para Aura Glow)
+   ========================================================================== */
+.seccion-categorias-circulo {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Mismo colchón para que los extremos se alineen calcados */
+    box-sizing: border-box;
+}
+
+.categories-circle-section {
+    display: flex;
+    justify-content: space-between; /* Distribuye los círculos de extremo a extremo */
+    align-items: center;
+    padding: 0px 0px 50px 0px; 
+    margin-top: -15px; /* Jala los círculos hacia arriba para quitar el hueco */
+}
+
+.circle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.circle-img-holder {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    border: 2px solid #EFEFEF;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: #FFF;
+    transition: all 0.3s ease; /* Transición limpia para el efecto flotante y aura */
+}
+
+.circle-img-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Efecto de Aura Sombra Rosa con tus variables de Aura Glow */
+.circle-item:hover .circle-img-holder {
+    transform: translateY(-6px); /* Flota ligeramente */
+    box-shadow: 0 10px 25px rgba(255, 157, 195, 0.5); /* Resplandor rosa */
+    border-color:  rgb(255, 204, 224); /* Bordes cambian al rosa de la marca */
+}
+
+.circle-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-sans); /* Forzamos tu tipografía limpia */
+    color: var(--color-navy); /* Usamos tu color Navy del inicio */
+    transition: color 0.2s ease;
+}
+
+/* El texto también cambia sutilmente de color al pasar el mouse */
+.circle-item:hover span {
+    color: var(--color-rosa-punto);
+}
+
+/* Estilo Base de las Tarjetas (Ajustado) */
+.promo-card {
+    position: relative; /* 👈 Obligatorio para que la imagen y el texto se alineen dentro */
+    height: 340px; 
+    border-radius: 24px; 
+    overflow: hidden;
+    display: flex;
+    box-sizing: border-box;
+    padding: 2.5rem;
+}
+
+.promo-card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene la caja perfectamente sin deformarse */
+    z-index: 1; /* Se queda al fondo */
+}
+
+.promo-info {
+    position: relative;
+    z-index: 2; /* Sube el texto por encima de la foto para que se pueda leer y clickear */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-izquierda .promo-info {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.layout-arriba-derecha .promo-info {
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.layout-arriba-centrado .promo-info {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* ==========================================================================
+   6. SECCIÓN BANNERS PROMOCIONALES (GRID COMPLETO)
+   ========================================================================== */
+.seccion-promociones-grid {
+    max-width: 1300px; /* Perfectamente alineado con tus 1300px elegidos */
+    width: 100%;
+    margin: 40px auto 60px auto; /* Centra el bloque y añade espacio abajo */
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.contenedor-promos-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* 👈 ¡ESTO FALTABA! Crea una columna grande y dos medianas */
+    gap: 24px; /* Espaciado idéntico entre bloques */
+}
+
+/* --- ESTILOS DE TEXTOS INTERNOS --- */
+
+/* Título de la tarjeta de Test de Piel */
+.layout-izquierda h2 {
+    font-family: var(--font-serif);
+    font-size: 2.3rem;
+    font-style: italic;
+    color: var(--color-navy);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+/* Botón de Test de Piel */
+.promo-boton {
+    display: inline-block;
+    background-color: var(--color-navy);
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.promo-boton:hover {
+    transform: translateY(-2px);
+    background-color: #151F37;
+}
+
+/* Tarjeta de Descuento (I'm From) */
+.layout-arriba-derecha .promo-tag {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 500;
+    display: block;
+}
+
+.promo-descuento {
+    font-size: 4.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 0.85;
+    font-family: var(--font-serif);
+    margin-top: 0.2rem;
+}
+
+.promo-descuento .dscto-signo {
+    font-size: 1.2rem;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    line-height: 1.1;
+    margin-left: 2px;
+    font-family: var(--font-sans);
+}
+
+.promo-descuento small {
+    font-size: 0.65rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.promo-marca-sub {
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-top: 0.4rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Tarjeta de Favoritos */
+.layout-arriba-centrado h2 {
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    line-height: 1.3;
+}
+/* ==========================================================================
+   CARRUSEL DE PRODUCTOS GENERAL
+   ========================================================================== */
+.seccion-productos-carrusel {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.carrusel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.carrusel-header h2 {
+    font-size: 1.8rem;
+    color: #1e2b4b; /* Color azul de Aura Glow */
+    font-weight: 600;
+}
+
+.btn-ver-todos {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #d1d5db;
+    padding-bottom: 2px;
+    transition: color 0.2s;
+}
+.btn-ver-todos:hover { color: #1e2b4b; border-color: #1e2b4b; }
+
+/* Wrapper y flechas flotantes */
+.carrusel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carrusel-container {
+    overflow: hidden; /* Oculta los productos excedentes */
+    width: 100%;
+}
+
+.carrusel-track {
+    display: flex;
+    gap: 12px; /* Espaciado corto entre tarjetas */
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Tarjeta individual de Producto */
+.producto-card {
+    /* Cálculo matemático exacto para mostrar 5 productos restando el espacio de los gaps */
+    flex: 0 0 calc((100% - (12px * 4)) / 5); 
+    background: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-radius: 18px;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.producto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+}
+
+/* Elementos internos de la Tarjeta */
+.prod-badge-tags {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+.tag-nuevo {
+    background: #fff0f5;
+    color: #ff7fa7;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+.btn-wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+.heart-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #374151;
+    stroke-width: 2;
+    transition: fill 0.2s, stroke 0.2s;
+}
+.btn-wishlist:hover .heart-icon { fill: #ff7fa7; stroke: #ff7fa7; }
+
+.prod-img-box {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.prod-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.prod-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.prod-marca {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.prod-titulo {
+    font-size: 0.85rem;
+    color: #1f2937;
+    font-weight: 500;
+    line-height: 1.3;
+    height: 2.6rem; /* Limita la altura del texto a dos líneas */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+/* Precios y Ofertas */
+.prod-precios {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+.precio-actual { font-weight: 700; color: #1e2b4b; font-size: 0.95rem; }
+.precio-antes { text-decoration: line-through; color: #9ca3af; font-size: 0.8rem; }
+.prod-descuento { background: #ffe4e6; color: #f43f5e; font-size: 0.75rem; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
+.tag-promo-banco { background: #fef3c7; color: #d97706; font-size: 0.7rem; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
+
+/* Botones de control flotantes */
+.carrusel-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    z-index: 10;
+    transition: background 0.2s, color 0.2s;
+}
+.carrusel-flecha:hover { background: #1e2b4b; color: #ffffff; }
+.flecha-izq { left: -45px; }
+.flecha-der { right: -45px; }
+
+/* ==========================================================================
+   Banner de frase intermedio
+   ========================================================================== */
+.banner-frase-glow {
+    background: linear-gradient(135deg, #ffc7d9 0%, #ffecf2 100%); /* Degradado hermoso */
+    padding: 1.5rem 1rem;
+    margin: 3rem 0; /* Separa el carrusel de arriba de lo que venga abajo */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-frase-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-texto {
+    color: #1E2B4B;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ==========================================================================
+   EFECTOS HOVER DEL BOTÓN AÑADIR
+   ========================================================================== */
+
+/* Asegura que el botón se posicione de forma absoluta respecto a la foto */
+.prod-img-box {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estado inicial del botón Añadir (Oculto y abajo) */
+.btn-anadir {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -35%); 
+    background-color: #ffffff;
+    color: #111111;
+    border: 1px solid #e0e0e0;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    opacity: 0; /* Oculto por defecto */
+    transition: all 0.3s ease-in-out; /* Transición suave */
+    white-space: nowrap;
+}
+
+.btn-anadir .cart-icon {
+    fill: currentColor; /* El icono toma el color del texto */
+}
+
+/* CUANDO PASAS EL CURSOR POR LA TARJETA DEL PRODUCTO: Aparece el botón */
+.producto-card:hover .btn-anadir {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Sube a su posición real */
+}
+
+/* CUANDO PASAS EL CURSOR SOBRE EL PROPIO BOTÓN: Se agranda y cambia a fondo rosa suave */
+.btn-anadir:hover {
+    background-color: #fff0f3; /* Rosa sutil de la captura image_7be52a.png */
+    color: #ff4a7a; /* Texto e icono rosa */
+    border-color: #ff4a7a;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* EFECTO CLICK EN EL BOTÓN (Feedback de añadido) */
+.btn-anadir:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* ==========================================================================
+   ESTILOS CORAZÓN (WISHLIST)
+   ========================================================================== */
+.btn-wishlist {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Corazón base (Color plomo/borde apagado por defecto) */
+.heart-icon {
+    width: 24px;
+    height: 24px;
+    fill: none; /* Sin fondo */
+    stroke: #888888; /* Borde gris */
+    stroke-width: 2;
+    transition: all 0.2s ease;
+}
+
+/* Al pasar el cursor por el botón del corazón: Solo borde rosa */
+.btn-wishlist:hover .heart-icon {
+    stroke: #ff4a7a; /* Borde rosa */
+}
+
+/* Cuando se le hace clic y se activa (Clase que pondrá JavaScript) */
+.btn-wishlist.activo .heart-icon {
+    fill: #ff4a7a;   /* Fondo rosa puro */
+    stroke: #ff4a7a; /* Borde rosa */
+    animation: latido 0.3s ease; /* Pequeño brinco de animación */
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   NUEVA SECCIÓN: BEST PACKS PREMIUM
+   ========================================================================== */
+.seccion-best-packs {
+    background-color: #fff2f4; /* Fondo rosa pastel de Aruma */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.packs-header h2 {
+    font-size: 2.2rem;
+    color: #111111;
+    margin-bottom: 0.5rem;
+}
+
+.packs-header p {
+    color: #666666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* Rejilla de 3 columnas perfectas */
+.packs-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Tarjeta base del Pack */
+.pack-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto hover en la tarjeta completa */
+.pack-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(255, 74, 122, 0.15); /* Sombra con toque rosa */
+}
+
+/* Óvalo decorativo del pack */
+.pack-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #1E2B4B;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 3;
+}
+
+/* Contenedor de la Imagen de pack */
+.pack-img-container {
+    position: relative;
+    width: 100%;
+    height: 290px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.pack-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+    transition: transform 0.4s ease;
+}
+
+/* Al hacer hover, la imagen se desliza un poco a la izquierda */
+.pack-card:hover .pack-img {
+    transform: translateX(-30px) scale(0.9);
+}
+
+/* PANEL OCULTO: Contenedor con la información del pack */
+.pack-info-hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%; /* Ocupa un poco más de la mitad de la tarjeta */
+    height: 100%;
+    background: linear-gradient(to left, rgba(255,255,255,0.98) 80%, rgba(255,255,255,0));
+    padding: 30px 20px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+}
+
+/* Al hacer hover en la tarjeta, el panel aparece elegantemente */
+.pack-card:hover .pack-info-hover {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.pack-info-hover h4 {
+    font-size: 1rem;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.pack-info-hover ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.pack-info-hover li {
+    font-size: 0.85rem;
+    color: #444444;
+    margin-bottom: 6px;
+    white-space: nowrap;
+}
+
+/* Enlace "Ver detalles" */
+.btn-pack-detalles {
+    color: #ff4a7a;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.btn-pack-detalles:hover {
+    text-decoration: underline;
+    color: #cc2b55;
+}
+
+/* Cuerpo de la tarjeta (Títulos y precios) */
+.pack-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    background: #ffffff;
+    border-top: 1px solid #f9f9f9;
+}
+
+.pack-titulo {
+    font-size: 1.2rem;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.pack-precios {
+    margin-bottom: 15px;
+}
+
+.pack-precio-actual {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ff4a7a;
+    margin-right: 8px;
+}
+
+.pack-precio-antes {
+    font-size: 1rem;
+    color: #999999;
+    text-decoration: line-through;
+}
+
+/* Botón Añadir al carrito del pack */
+.btn-pack-anadir {
+    width: 100%;
+    background-color: #1E2B4B;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover del botón */
+.btn-pack-anadir:hover {
+    background-color: #FF9AA2;
+    transform: scale(1.02);
+}
+
+.btn-pack-anadir:active {
+    transform: scale(0.98);
+}
+/* ==========================================================================
+   SECCIÓN DÚO BANNERS
+   ========================================================================== */
+.seccion-duo-banners {
+    padding: 3rem 2rem 1rem 2rem;
+    background-color: #ffffff;
+}
+
+/* Contenedor que pone los dos banners lado a lado */
+.banners-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* Base de cada banner */
+.banner-promocional {
+    height: 320px;
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Banner 2Puclicidad */
+.banner-im-from {
+    background-image: url('img/2publicidades/publicidad1.jpg'); 
+    background-color: #fcaec1; /* Color rosa de respaldo mientras carga la imagen */
+    justify-content: flex-end;
+    align-items: flex-start; 
+    padding-top: 1px; 
+}
+
+.banner-summer-fridays {
+    background-image: url('img/2publicidades/publicidad2.jpg');
+    background-color: #b3c2d1; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    padding-top: 40px; /* Igual que el otro banner. Si lo quieres más arriba o abajo, mueve este número */
+}
+
+/* Efecto hover al pasar el mouse sobre CUALQUIER zona de la publicidad */
+.banner-promocional:hover {
+    transform: scale(1.01); /* Da un sutil estiramiento */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Caja de contenido dentro del banner */
+.banner-overlay-contenido {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 50%; /* Evita que el texto tape los productos de la foto */
+    z-index: 2;
+}
+
+/* Títulos con letras blancas */
+.banner-promo-titulo {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', Georgia, serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* El botón blanco tipo enlace */
+.btn-banner-link {
+    background-color: #ffffff;
+    color: #feb3c7; /* Texto */
+    text-decoration: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+/* HOVER: Cuando pasas el cursor directo por el botón blanco */
+.btn-banner-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 74, 122, 0.2);
+    background-color: #fff0f3; 
+}
+
+.btn-banner-link:active {
+    background-color: #ff4a7a;
+    color: #ffffff;
+    transform: translateY(0);
+}
+/* Posicionamiento 100% independiente para "Summer Fridays" */
+.banner-summer-fridays .banner-overlay-contenido {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+
+/* 1. Mover ÚNICAMENTE "Descubre" */
+.banner-summer-fridays .estilo-descubre {
+    position: absolute;
+    font-family: Georgia, serif;
+    font-weight: 600; 
+    font-style: italic; 
+    color: #ffffff; 
+    font-size: 2.6rem;
+    top: 70px;   /* subir/bajar "Descubre" */
+    left: 40px;  /* izquierda/derecha */
+}
+
+/* 2. Mover ÚNICAMENTE "Summer Fridays" */
+.banner-summer-fridays .banner-promo-titulo {
+    position: absolute;
+    font-family: 'Playfair Display', Georgia, serif; 
+    font-weight: 700;
+    color: #ffffff; 
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin: 0;
+    top: 125px;  /* subir/bajar "Summer Fridays" */
+    left: 40px;  /* izquierda/derecha */
+}
+
+/* 3. Mover ÚNICAMENTE su Botón blanco */
+.banner-summer-fridays .btn-banner-link {
+    position: absolute;
+    color: #a8b1bb; 
+    top: 180px;  /* subir/bajar el Botón */
+    left: 40px;  /* izquierda/derecha */
+}
+
+/* Posicionamiento 100% independiente para "Im from" */
+.banner-im-from .banner-overlay-contenido {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+
+/* 1. Mover ÚNICAMENTE "¡Lo nuevo" */
+.banner-im-from .estilo-lo-nuevo {
+    position: absolute;
+    font-family: Georgia, serif; 
+    font-weight: 600; 
+    font-style: italic;
+    color: #ffffff; 
+    font-size: 2.6rem; 
+    top: 40px;    /* subir/bajar "¡Lo nuevo" */
+    right: 40px;  /* izquierda/derecha */
+}
+
+/* 2. Mover ÚNICAMENTE "del catálogo!" */
+.banner-im-from .banner-promo-titulo {
+    position: absolute;
+    font-family: 'Playfair Display', Georgia, serif; 
+    font-weight: 700;
+    color: #ffffff; 
+    font-size: 2rem; 
+    line-height: 1.2;
+    margin: 0;
+    top: 93px;   
+    right: 40px;  
+}
+
+/* 3. Mover ÚNICAMENTE su Botón */
+.banner-im-from .btn-banner-link {
+    position: absolute;
+    top: 150px;  
+    right: 40px;  
+}
+/* ==========================================================================
+   RESEÑAS (3CARRUSEL)
+   ========================================================================== */
+.seccion-resenas {
+    padding: 1rem 2rem 4rem 2rem;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.resenas-bloque-titulo {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Lo avienta totalmente a la izquierda del contenedor */
+    box-sizing: border-box;
+    padding-left: 65px;
+}
+
+.resenas-titulo {
+    font-family: Arial, sans-serif;
+    font-size: 2.2rem; 
+    color: #1c2d5a; 
+    font-weight: 700;
+    margin-bottom: 2rem;
+    margin-left: 0; 
+    padding-left: 0;
+}
+
+
+/* Estructura general con las flechas a los costados */
+.resenas-contenedor-principal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+/* Ventana que oculta lo que no está activo */
+.resenas-ventana-carrusel {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* El riel que se desliza */
+.resenas-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+/* Cada grupo representa una pantalla completa con exactamente 3 reseñas */
+.grupo-resenas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    min-width: 100%; /* Hace que cada grupo ocupe toda la ventana visible */
+    box-sizing: border-radius;
+}
+
+/* Tarjeta individual (Diseño fiel a tu imagen) */
+.tarjeta-resena {
+    background-color: #fff0f2; /* Ese tono rosa pálido sutil de tu captura */
+    border-radius: 24px;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+}
+
+/* Comillas gigantes de adorno */
+.comillas-decorativas {
+    font-family: Georgia, serif;
+    font-size: 4.5rem;
+    color: #1c2d5a;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    opacity: 0.8;
+}
+
+.texto-resena {
+    font-size: 0.95rem;
+    color: #1c2d5a;
+    line-height: 1.6;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Info de abajo: Foto, nombre y estrellas */
+.usuario-resena-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-resena {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.usuario-detalles {
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre-resena {
+    font-weight: 600;
+    color: #1c2d5a;
+    font-size: 0.95rem;
+}
+
+.estrellas-resena {
+    color: #1c2d5a; /* Estrellas oscuras tal cual tu foto */
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+/* Botones de las Flechas Laterales */
+.flecha-resena {
+    background-color: #fff0f2;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1c2d5a;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.flecha-resena:hover {
+    background-color: #ff4a7a; /* Se pinta del rosa encendido al pasar el mouse */
+    color: #ffffff;
+}
+/* ==========================================================================
+   ESTILOS DEL PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+
+.main-footer {
+    background-color: #24314f; /* Azul oscuro idéntico a la imagen */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    margin-top: 150px; /* Espacio para que la caja rosa flote encima */
+    padding-bottom: 60px;
+}
+
+/* Caja de Suscripción Flotante */
+.footer-newsletter {
+    background-color: #fdf0ee; /* Color rosa pálido */
+    color: #24314f;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 30px;
+    padding: 35px 20px;
+    text-align: center;
+    position: relative;
+    top: -100px; /* Sube la caja para que flote sobre el fondo azul */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.footer-newsletter h2 {
+    font-family: serif; /* Toque elegante para el título */
+    font-size: 2rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.newsletter-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Formulario e Input animado */
+.newsletter-form {
+    max-width: 550px;
+    margin: 0 auto 15px auto;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #24314f;
+    border-radius: 50px;
+    padding: 5px 10px 5px 25px;
+    transition: all 0.3s ease; /* Animación de transición */
+}
+
+/* Animación focus/hover del input */
+.input-group:focus-within, .input-group:hover {
+    box-shadow: 0 0 12px rgba(36, 49, 79, 0.2);
+    background-color: #ffffff;
+}
+
+.input-group input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 1rem;
+    color: #24314f;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #7a8294;
+}
+
+.input-group button {
+    background: transparent;
+    border: none;
+    color: #24314f;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Animación de la flecha al pasar el mouse */
+.input-group:hover button {
+    transform: translateX(5px);
+}
+
+/* Mensaje de éxito tras registrarse */
+.newsletter-success-msg {
+    font-weight: 600;
+    color: #2b7a4b;
+    margin: 10px 0;
+    font-size: 1rem;
+    display: none; /* Se activa con JavaScript */
+}
+
+.newsletter-legal {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #24314f;
+    margin-top: 15px;
+}
+
+/* Contenedor Inferior del Footer (Columnas) */
+.footer-container {
+    max-width: 1200px;
+    margin: -40px auto 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.2fr; /* Divide en 4 columnas */
+    gap: 40px;
+}
+
+.footer-logo {
+    font-family: serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-socials a {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-right: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-socials a:hover {
+    opacity: 0.7;
+}
+
+.footer-links-col h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-links-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links-col ul li a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Adaptación para pantallas celulares */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-socials {
+        margin-bottom: 20px;
+    }
+    .footer-newsletter {
+        width: 90%;
+        top: -70px;
+    }
+}
+/* Controla el tamaño del logo en el footer */
+.logo-footer-img {
+    width: 200px;  /* Puedes subir o bajar este número si lo quieres más grande o pequeño */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+/* Hace que todo el bloque del logo sea clickeable sin alterar el diseño */
+.footer-logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   ESTILOS DE LA PÁGINA DE CATÁLOGO (LIMPIEZA)
+   ========================================================================== */
+
+.catalogo-container {
+    max-width: 1250px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.breadcrumbs {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.breadcrumbs a {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumbs a:hover {
+    color: #ff7fa7;
+}
+
+.titulo-categoria {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #1e2b4b;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* Layout en dos bloques */
+.catalogo-layout {
+    display: flex;
+    gap: 35px;
+}
+
+/* Filtros laterales (Estilo Maqueta) */
+.sidebar-filtros {
+    width: 250px;
+    flex-shrink: 0;
+    background-color: #fff0f5; /* Tono rosa suave de Aura Glow */
+    padding: 1.5rem;
+    border-radius: 16px;
+    height: fit-content;
+}
+
+.item-filtro {
+    border-bottom: 1px solid #fbcfe8;
+    padding: 12px 0;
+}
+
+.item-filtro:last-child {
+    border-bottom: none;
+}
+
+.filtro-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #1e2b4b;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.filtro-cabecera i {
+    font-size: 0.7rem;
+    color: #ff7fa7;
+}
+
+/* Rejilla de Productos Principal */
+.productos-wrapper {
+    flex-grow: 1;
+}
+
+.grid-productos {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; /* 4 columnas fijas */
+    gap: 20px !important;
+    width: 100%;
+}
+
+/* Tarjeta de Producto del Catálogo */
+.producto-card-catalogo {
+    background: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-radius: 18px;
+    padding: 1.2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.producto-card-catalogo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+}
+
+/* Caja de Imagen y Botón Añadir Integrado */
+.prod-img-box-catalogo {
+    width: 100%;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+}
+
+.prod-img-box-catalogo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Botón Añadir de catálogo (Aparece abajo de la imagen al hacer hover) */
+.btn-anadir-catalogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #e5e7eb;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 50px; /* Forma de píldora */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease-in-out;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.producto-card-catalogo:hover .btn-anadir-catalogo {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-anadir-catalogo:hover {
+    background-color: #fff0f5; /* Fondo rosa pálido */
+    color: #ff4e88;           /* Texto rosa */
+    border-color: #ff4e88;    /* Borde rosa */
+}
+.btn-anadir-catalogo.comprado {
+    background-color: #ff4e88 !important; /* Fondo rosa fuerte */
+    color: #ffffff !important;            /* Texto blanco */
+    border-color: #ff4e88 !important;
+    box-shadow: 0 4px 12px rgba(255, 78, 136, 0.3);
+}
+
+/* Corazón Wishlist */
+.btn-wishlist-catalogo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 12;
+    padding: 5px;
+}
+
+.heart-icon-catalogo {
+    width: 24px;
+    height: 24px;
+    fill: transparent;
+    stroke: #737373; /* Gris de la silueta original */
+    stroke-width: 2;
+    transition: all 0.2s ease;
+}
+
+.btn-wishlist-catalogo:hover .heart-icon-catalogo {
+    fill: #ff8fa3;
+    stroke: #ff4e88;
+}
+.btn-wishlist-catalogo.guardado .heart-icon-catalogo {
+    fill: #ff4e88 !important;
+    stroke: #ff4e88 !important;
+}
+
+/* Info de Textos */
+.prod-info-catalogo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.prod-marca-catalogo {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.prod-titulo-catalogo {
+    font-size: 0.85rem;
+    color: #1f2937;
+    font-weight: 500;
+    line-height: 1.4;
+    height: 2.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.prod-precios-catalogo {
+    margin-top: 6px;
+}
+
+.precio-actual-catalogo {
+    font-weight: 700;
+    color: #1e2b4b;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   ESTILOS DE LA PAGINACIÓN (PERFECTA COMO TU CAPTURA)
+   ========================================================================== */
+.paginacion-catalogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 3.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.txt-paginas {
+    font-size: 0.95rem;
+    color: #1f2937;
+    margin-right: 8px;
+}
+
+.num-pag, .flecha-pag {
+    text-decoration: none;
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 0.95rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.num-pag.activa {
+    background-color: #ff007c; /* El rosa vibrante de tu captura original */
+    color: #ffffff;
+}
+
+.num-pag:hover:not(.activa), .flecha-pag:hover {
+    background-color: #fff0f5;
+    color: #ff7fa7;
+}
+
+.puntos-pag {
+    color: #6b7280;
+    padding: 0 4px;
+}
+/* ==========================================================================
+   Estilos del inicio de sesión
+   ========================================================================== */
+.modal-cuenta-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 43, 75, 0.4); /* Capa oscura semitransparente azulada */
+    backdrop-filter: blur(4px);               /* Efecto de desenfoque al fondo */
+    z-index: 2000;                            /* Por encima de todo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Cuando el modal tenga la clase 'mostrar', se hará visible */
+.modal-cuenta-overlay.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-cuenta-contenedor {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(30, 43, 75, 0.15);
+    
+    /* Animación de entrada: empieza un poco más arriba y encogido */
+    transform: translateY(-30px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Al abrirse, el contenedor toma su posición original */
+.modal-cuenta-overlay.mostrar .modal-cuenta-contenedor {
+    transform: translateY(0) scale(1);
+}
+
+.modal-cuenta-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #6B7280;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-cuenta-cerrar:hover {
+    color: #1E2B4B;
+}
+
+.modal-cuenta-contenido h2 {
+    font-family: 'Playfair Display', serif;
+    color: #1E2B4B;
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.modal-cuenta-contenido p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #6B7280;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Estructura del formulario interno */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.grupo-input label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1E2B4B;
+}
+
+.grupo-input input {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: 12px 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: #F9F9FA;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.grupo-input input:focus {
+    border-color: #FF9AA2; /* Cambia al tono rosa de tu marca al escribir */
+    background-color: #ffffff;
+}
+
+.opciones-recuperar {
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.opciones-recuperar a {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8rem;
+    color: #6B7280;
+    text-decoration: none;
+}
+
+.opciones-recuperar a:hover {
+    text-decoration: underline;
+    color: #1E2B4B;
+}
+
+.btn-iniciar-sesion {
+    width: 100%;
+    padding: 14px;
+    background-color: #1E2B4B;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para el color y sombra */
+}
+
+.btn-iniciar-sesion:hover {
+    background-color: #2a3c66;
+    box-shadow: 0 4px 12px rgba(30, 43, 75, 0.2);
+}
+
+.btn-iniciar-sesion:active {
+    transform: scale(0.98);
+}
+
+.modal-cuenta-pie {
+    margin-top: 25px;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #6B7280;
+}
+
+.enlace-registro {
+    color: #1E2B4B;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.enlace-registro:hover {
+    text-decoration: underline;
+}
+/* Clase auxiliar para ocultar vistas */
+.modal-cuenta-contenido.d-none {
+    display: none !important;
+}
+
+/* Distribución lado a lado para DNI y Fecha de Nacimiento */
+.grid-inputs-mitad {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Suavizar el selector de fecha nativo para que combine con Aura Glow */
+input[type="date"] {
+    color: #6B7280;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Enlaces de intercambio de formulario */
+.enlace-cambio-vista {
+    color: #1E2B4B;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.enlace-cambio-vista:hover {
+    text-decoration: underline;
+}
+/* ==========================================
+   ESTILOS DE LA SECCIÓN DE CONTACTO
+   ========================================== */
+
+.contenedor-contacto-principal {
+    background-color: #fff9f9; 
+    padding: 60px 20px;
+    font-family: inherit;
+}
+
+.seccion-contacto {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Para pantallas grandes se divide en dos columnas balanceadas */
+@media (min-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+}
+
+/* --- COLUMNA 1: INFORMACIÓN --- */
+.subtitulo-marca {
+    color: #ff9aa2; 
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contacto-info h2 {
+    color: #1e2b4b;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.descripcion-contacto {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.bloques-atencion {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.tarjeta-atencion {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.icono-atencion {
+    background-color: #1e2b4b;
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tarjeta-atencion:hover .icono-atencion {
+    transform: scale(1.1);
+    background-color: #ff9aa2;
+}
+
+.texto-atencion h3 {
+    font-size: 16px;
+    color: #1e2b4b;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.texto-atencion p {
+    color: #555;
+    margin: 0;
+    font-size: 15px;
+}
+
+.texto-atencion span {
+    font-size: 12px;
+    color: #999;
+}
+
+.enlace-contacto-accion {
+    color: #1e2b4b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.enlace-contacto-accion:hover {
+    color: #ff9aa2;
+}
+
+/* --- COLUMNA 2: FORMULARIO --- */
+.contacto-formulario {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(26, 43, 76, 0.04); /* Sombra súper suave */
+    border: 1px solid #f0e6e6;
+}
+
+.contacto-formulario h3 {
+    color: #1a2b4c;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.contacto-formulario p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-input label {
+    font-size: 14px;
+    color: #1a2b4c;
+    font-weight: 500;
+}
+
+.input-contacto {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e0d5d5;
+    border-radius: 8px;
+    background-color: #faf7f7;
+    color: #333;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Animación de enfoque solicitada por profesores */
+.input-contacto:focus {
+    border-color: #1a2b4c;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(26, 43, 76, 0.1);
+}
+
+.select-contacto {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a2b4c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+}
+
+.textarea-contacto {
+    resize: none;
+}
+
+.boton-enviar-contacto {
+    background-color: #1a2b4c;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.boton-enviar-contacto:hover {
+    background-color: #FF9AA2; /* Cambia al rosa viejo de la marca */
+    transform: translateY(-2px); /* Microanimación de levante */
+    box-shadow: 0 5px 15px rgba(204, 164, 164, 0.4);
+}
+
+.boton-enviar-contacto:active {
+    transform: translateY(0);
+}
+
+/* --- ANIMACIONES DE ENTRADA AL CARGAR (CSS Transitions/Keyframes) --- */
+@keyframes fadeIn {
+    from { opacity: 0; opacity: 0; }
+    to { opacity: 1; opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s ease forwards;
+}
+/* ==========================================================================
+   NUEVA SECCIÓN: APARTADO DE PROMOCIONES (AURAGLOW)
+   ========================================================================== */
+.seccion-ofertas-auraglow {
+    max-width: 1300px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+}
+
+.ofertas-header {
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.ofertas-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.ofertas-header p {
+    font-family: var(--font-sans);
+    color: var(--color-gris-texto);
+    font-size: 1rem;
+}
+
+/* --- BANNER DESTACADO (HERO PROMO) --- */
+.promo-hero-banner {
+    background: linear-gradient(135deg, #FFF5F6 0%, #FFE3E6 100%); /* Degradado rosa AuraGlow */
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(255, 154, 162, 0.1);
+}
+
+.promo-hero-contenido {
+    max-width: 50%;
+    z-index: 2;
+}
+
+.badge-promo {
+    display: inline-block;
+    background-color: var(--color-navy);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.2rem;
+}
+
+.promo-hero-contenido h3 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--color-navy);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.promo-hero-contenido p {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: #4B5563;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.btn-promo-auraglow {
+    display: inline-block;
+    background-color: var(--color-navy);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-promo-auraglow:hover {
+    background-color: #151F37;
+    transform: translateY(-2px);
+}
+
+.promo-hero-imagen {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    height: 90%;
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.promo-hero-imagen img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.promo-hero-banner:hover .promo-hero-imagen img {
+    transform: scale(1.03) translateY(-5px); /* sutil juego visual */
+}
+
+/* --- REJILLA DE PROMOS SECUNDARIAS --- */
+.grid-promos-secundarias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.tarjeta-oferta-mini {
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-oferta-mini:hover {
+    transform: translateY(-5px);
+}
+
+/* Variaciones de color suaves que combinan con tu paleta */
+.tarjeta-oferta-mini.oro { background-color: #FDF6EC; box-shadow: 0 4px 15px rgba(217, 119, 6, 0.05); }
+.tarjeta-oferta-mini.rosa-suave { background-color: var(--color-rosa-bg); box-shadow: 0 4px 15px rgba(255, 154, 162, 0.05); }
+.tarjeta-oferta-mini.azul-claro { background-color: #EBF3FF; box-shadow: 0 4px 15px rgba(47, 105, 194, 0.05); }
+
+/* Destello de Aura al hacer Hover en las tarjetas chicas */
+.tarjeta-oferta-mini.rosa-suave:hover { box-shadow: 0 10px 25px rgba(255, 157, 195, 0.4); }
+.tarjeta-oferta-mini.oro:hover { box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2); }
+.tarjeta-oferta-mini.azul-claro:hover { box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2); }
+
+.mini-promo-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tag-marca {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-gris-texto);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.tarjeta-oferta-mini h4 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-navy);
+    margin-bottom: 0.4rem;
+}
+
+.descuento-txt {
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin-bottom: 1rem;
+}
+
+.condicion-txt {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    color: #4B5563;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.enlace-oferta {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.enlace-oferta:hover {
+    color: var(--color-rosa-punto);
+    padding-left: 5px; /* Efecto dinámico hacia la derecha */
+}
+
+/* --- RESPONSIVE / ADAPTACIÓN A MÓVILES --- */
+@media (max-width: 992px) {
+    .promo-hero-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+    }
+    .promo-hero-contenido {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+    .promo-hero-imagen {
+        position: relative;
+        width: 80%;
+        height: auto;
+        right: auto;
+    }
+    .grid-promos-secundarias {
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
+    }
+}
+
+.bloque-buscador {
+    position: relative;
+}
+
+/* Caja de sugerencias desplegable */
+.contenedor-resultados {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #f3e8ff; /* Un toque sutil morado/lavanda muy claro */
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    max-height: 380px;
+    overflow-y: auto;
+    z-index: 9999;
+    display: none;
+    margin-top: 8px;
+}
+
+/* Cada fila de producto */
+.item-resultado {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #f8fafc;
+    transition: background-color 0.2s ease;
+}
+
+.item-resultado:last-child {
+    border-bottom: none;
+}
+
+.item-resultado:hover {
+    background-color: #fff1f2; /* Color rosa Aura Glow para el hover */
+}
+
+/* Imagen miniatura */
+.item-resultado img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 4px;
+    background: #fdfdfd;
+}
+
+.info-resultado {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.marca-resultado {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.nombre-resultado {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #334155;
+    line-height: 1.3;
+}
+
+.precio-resultado {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e11d48; /* Color destacado para el precio */
+}
+
+.sin-resultados {
+    padding: 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos - Aura Glow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           ESTILOS EXCLUSIVOS PARA LA PÁGINA QUIÉNES SOMOS (Estilo Aruma)
+           ========================================================================== */
+        
+        .institutional-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 60px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Menú Lateral Izquierdo */
+        .sidebar-menu {
+            width: 260px;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-menu h2 {
+            font-size: 2.4rem;
+            font-family: serif; /* Toque elegante similar al logo */
+            color: #24314f;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        
+        .sidebar-btn {
+            background-color: #fdf0ee; /* El color rosa bajito de la caja de suscripción */
+            color: #24314f;
+            padding: 14px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            width: 100%;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+        }
+
+        /* Bloque de Contenido Derecho */
+        .content-body {
+            flex: 1;
+        }
+        
+        .content-body h1 {
+            font-size: 2.6rem;
+            color: #24314f;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+        
+        .content-section {
+            margin-bottom: 35px;
+        }
+        
+        .content-section h3 {
+            font-size: 1.25rem;
+            color: #24314f;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .content-section p {
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #4a4a4a;
+            margin-bottom: 15px;
+        }
+
+        /* Enlace de regreso simple */
+        .back-home-link {
+            display: inline-block;
+            margin: 20px 0 0 20px;
+            color: #24314f;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+        .back-home-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Adaptación para celulares */
+        @media (max-width: 768px) {
+            .institutional-container {
+                flex-direction: column;
+                gap: 30px;
+                margin: 30px auto;
+            }
+            .sidebar-menu {
+                width: 100%;
+                text-align: center;
+            }
+            .content-body h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. BARRA DE MENÚ (NAV) -->
+    <header class="sitio-header">
+        <div class="barra-superior">
+            <div class="contenedor-anuncio">
+                <div class="anuncio-texto">
+                    <span class="punto-rosa"></span> Envíos gratis por compras mayores a S/. 199
+                </div>
+                <div class="anuncio-enlaces">
+                    <a href="index.html#test-seccion">Skin Test</a>
+                    <a href="#">Kits Especiales</a>
+                    <a href="#">Opiniones</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="barra-principal">
+            <div class="contenedor-principal">
+                
+                <div class="bloque-logo">
+                    <a href="index.html" class="logo-enlace">
+                        <img src="img/logo/AuraGlow_SVGLogo.svg" alt="Aura Glow" class="logo-svg">
+                    </a>
+                </div>
+
+                <div class="bloque-buscador">
+                    <form action="#" method="GET" class="formulario-busqueda">
+                        <input type="text" placeholder="Buscar productos (ej. Protector, Serum, Neutrogena...)" class="input-busqueda">
+                        <button type="submit" class="boton-busqueda">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="bloque-iconos">
+                    <button class="icono-accion" aria-label="Favoritos">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <button class="icono-accion" aria-label="Carrito">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </button>
+                    <button class="icono-accion" aria-label="Cuenta">
+                        <i class="fa-regular fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navegacion-categorias">
+            <div class="contenedor-menu">
+                <ul class="lista-menu">
+                    
+                    <li><a href="#" class="enlace-menu">Promociones</a></li>
+                    
+                    <li class="tiene-desplegable">
+                        <a href="#" class="enlace-menu">Catálogo <i class="fa-solid fa-chevron-down flecha"></i></a>
+                        
+                        <div class="megamenu-desplegable">
+                            <div class="grid-megamenu col-4">
+                                <div class="columna-menu">
+                                    <h3>Limpieza</h3>
+                                    <ul>
+                                        <li><a href="#">Limpiadores y Jabones</a></li>
+                                        <li><a href="#">Aguas Micelares y Tónicos</a></li>
+                                        <li><a href="#">Exfoliantes</a></li>
+                                        <li><a href="#">Desmaquillantes</a></li>
+                                        <li><a href="#">Accesorios Faciales y Corporales</a></li>
+                                    </ul>
+                                    
+                                    <h3 class="espacio-arriba">Necesidad</h3>
+                                    <ul>
+                                        <li><a href="#">Antiedad</a></li>
+                                        <li><a href="#">Antimanchas</a></li>
+                                        <li><a href="#">Acné e Imperfecciones</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Hidratación</h3>
+                                    <ul>
+                                        <li><a href="#">Cremas de Día</a></li>
+                                        <li><a href="#">Cremas de Noche</a></li>
+                                        <li><a href="#">Contorno de Ojos</a></li>
+                                        <li><a href="#">Aguas Termales y Brumas</a></li>
+                                        <li><a href="#">Bálsamos Labiales</a></li>
+                                    </ul>
+                                    
+                                    <h3 class="espacio-arriba">Dermocosmética</h3>
+                                    <h3 class="espacio-arriba">Productos Coreanos</h3>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Protección Solar</h3>
+                                    <ul>
+                                        <li><a href="#">Facial</a></li>
+                                        <li><a href="#">Corporal</a></li>
+                                        <li><a href="#">Autobronceadores</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Tratamiento</h3>
+                                    <ul>
+                                        <li><a href="#">Serums y Ampollas</a></li>
+                                        <li><a href="#">Mascarillas</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="tiene-desplegable">
+                        <a href="#" class="enlace-menu">Marcas <i class="fa-solid fa-chevron-down flecha"></i></a>
+                        
+                        <div class="megamenu-desplegable">
+                            <div class="grid-megamenu col-3 max-ancho-marcas">
+                                <div class="columna-menu">
+                                    <h3>K-Beauty</h3>
+                                    <ul>
+                                        <li><a href="#">Laneige</a></li>
+                                        <li><a href="#">Tocobo</a></li>
+                                        <li><a href="#">Skin1004</a></li>
+                                        <li><a href="#">I'm From</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Dermatológicas</h3>
+                                    <ul>
+                                        <li><a href="#">La Roche Posay</a></li>
+                                        <li><a href="#">Bioderma</a></li>
+                                        <li><a href="#">ISDIN</a></li>
+                                        <li><a href="#">CeraVe</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Clínicas & Globales</h3>
+                                    <ul>
+                                        <li><a href="#">Neutrogena</a></li>
+                                        <li><a href="#">Sesderma</a></li>
+                                        <li><a href="#">The Ordinary</a></li>
+                                        <li><a href="#">Summer Fridays</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#" class="enlace-menu">Rutinas y Packs</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <main class="institutional-container">
+        
+        <!-- Menú Lateral -->
+        <aside class="sidebar-menu">
+            <h2>Servicio al <br>cliente</h2>
+            <a href="#" class="sidebar-btn">Quienes somos</a>
+        </aside>
+
+        <!-- Secciones Informativas -->
+        <section class="content-body">
+            <h1>Quiénes somos</h1>
+            
+            <div class="content-section">
+                <h3>Nosotros</h3>
+                <p>En Aura Glow creemos que el cuidado de la piel no debería ser una tarea compleja, sino un momento de celebración y amor propio. Nos dedicamos a diseñar y seleccionar productos que realcen la luminosidad natural de tu rostro, ayudándote a liberarte de las autoexigencias y expectativas externas. Porque al final del día, se trata de soltar para disfrutar de tu propia piel.</p>
+            </div>
+
+            <div class="content-section">
+                <h3>Nuestros Valores</h3>
+                
+                <p><strong>Pasión:</strong><br>
+                ¡Amamos lo que hacemos! Nos apasiona la belleza real y ponemos el corazón en cada fórmula y recomendación. Nuestra energía y compromiso marcan la diferencia en tu rutina de skincare.</p>
+                
+                <p style="margin-top: 20px;"><strong>Innovación:</strong><br>
+                ¡Creamos nuevas formas de brillar! Nos reinventamos una y otra vez para ofrecerte siempre lo último en tendencias cosméticas, asegurando que cada producto sea un paso adelante en tecnología y bienestar.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+    <!-- Caja Flotante de Suscripción -->
+    <div class="footer-newsletter">
+        <h2>Sé el primero!</h2>
+        <p class="newsletter-subtitle">Recibe las novedades en ofertas y lanzamientos.</p>
+        
+        <form id="newsletter-form" class="newsletter-form">
+            <div class="input-group">
+                <input type="email" id="newsletter-email" placeholder="Dirección de correo electrónico" required>
+                <button type="submit" aria-label="Enviar"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </form>
+        <!-- Mensaje de éxito oculto por defecto -->
+        <p id="newsletter-message" class="newsletter-success-msg"></p>
+        
+        <p class="newsletter-legal">
+            Al suscribirte, aceptas recibir comunicaciones informativas y promocionales <br>
+            de Aura Glow. Consulta nuestros términos y política de privacidad.
+        </p>
+    </div>
+
+    <!-- Contenido Principal del Footer -->
+<div class="footer-container">
+    <!-- Columna Marca y Redes -->
+    <div class="footer-brand-col">
+        <a href="index.html" class="footer-logo-link" aria-label="Ir a la página de inicio">
+            <div class="footer-logo-svg">
+                <img src="img/logo/Logo_enBlanco.svg" alt="Aura Glow" class="logo-footer-img">
+            </div>
+        </a>
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <!-- Columna 1: Enlaces -->
+        <div class="footer-links-col">
+            <h3>Sobre Aura Glow</h3>
+            <ul>
+                <!-- Este enlace nos llevará a la nueva página que crearemos -->
+                <li><a href="quienes-somos.html">Quienes somos</a></li>
+                <li><a href="#">Tiendas</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 2: Enlaces -->
+        <div class="footer-links-col">
+            <h3>Servicio al cliente</h3>
+            <ul>
+                <li><a href="#">Cómo comprar</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Cambios y Devoluciones</a></li>
+                <li><a href="#">Medios de pago</a></li>
+                <li><a href="Contactanos.html">Contáctanos</a></li>
+                <li><a href="#">Asesorias y Ventas</a></li>
+                <li><a href="#">(+51) 900 000 000</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Enlaces -->
+        <div class="footer-links-col">
+            <h3>Legales</h3>
+            <ul>
+                <li><a href="#">Terminos y Condiciones</a></li>
+                <li><a href="#">Condiciones de Envío</a></li>
+                <li><a href="#">Políticas de Privacidad</a></li>
+                <li><a href="#">Políticas de Devolución</a></li>
+                <li><a href="#">Terminos de Campaña</a></li>
+                <li><a href="#">Libro de reclamaciones</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- sirve para que carguen los iconos de redes sociales y flechas -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<script src="nav.js"></script>
+</body>
+</html>

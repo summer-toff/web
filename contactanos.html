@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Glow | Tienda Oficial</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="sitio-header">
+        <div class="barra-superior">
+            <div class="contenedor-anuncio">
+                <div class="anuncio-texto">
+                    <span class="punto-rosa"></span> Envíos gratis por compras mayores a S/. 199
+                </div>
+                <div class="anuncio-enlaces">
+                    <a href="#test-seccion">Skin Test</a>
+                    <a href="#">Kits Especiales</a>
+                    <a href="#">Opiniones</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="barra-principal">
+            <div class="contenedor-principal">
+                
+                <div class="bloque-logo">
+                    <a href="index.html" class="logo-enlace">
+                        <img src="img/logo/AuraGlow_SVGLogo.svg" alt="Aura Glow" class="logo-svg">
+                    </a>
+                </div>
+
+                <div class="bloque-buscador">
+                    <form action="#" method="GET" class="formulario-busqueda">
+                        <input type="text" placeholder="Buscar productos (ej. Protector, Serum, Neutrogena...)" class="input-busqueda">
+                        <button type="submit" class="boton-busqueda">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="bloque-iconos">
+                    <button class="icono-accion" aria-label="Favoritos">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <button class="icono-accion" aria-label="Carrito">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </button>
+                    <button class="icono-accion" id="btn-cuenta" aria-label="Cuenta">
+                        <i class="fa-regular fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navegacion-categorias">
+            <div class="contenedor-menu">
+                <ul class="lista-menu">
+                    
+                    <li><a href="promociones.html" class="enlace-menu">Promociones</a></li>
+                    
+                    <li class="tiene-desplegable">
+                        <a href="#" class="enlace-menu">Catálogo <i class="fa-solid fa-chevron-down flecha"></i></a>
+                        
+                        <div class="megamenu-desplegable">
+                            <div class="grid-megamenu col-4">
+                                <div class="columna-menu">
+                                    <h3><a href="limpieza.html" style="color: inherit; text-decoration: none;">Limpieza</a></h3>
+                                    <ul>
+                                        <li><a href="limpieza.html">Limpiadores y Jabones</a></li>
+                                        <li><a href="limpieza.html">Aguas Micelares y Tónicos</a></li>
+                                        <li><a href="limpieza.html">Exfoliantes</a></li>
+                                        <li><a href="limpieza.html">Desmaquillantes</a></li>
+                                        <li><a href="limpieza.html">Accesorios Faciales y Corporales</a></li>
+                                    </ul>
+                                    
+                                    <h3 class="espacio-arriba">Necesidad</h3>
+                                    <ul>
+                                        <li><a href="#">Antiedad</a></li>
+                                        <li><a href="#">Antimanchas</a></li>
+                                        <li><a href="#">Acné e Imperfecciones</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Hidratación</h3>
+                                    <ul>
+                                        <li><a href="#">Cremas de Día</a></li>
+                                        <li><a href="#">Cremas de Noche</a></li>
+                                        <li><a href="#">Contorno de Ojos</a></li>
+                                        <li><a href="#">Aguas Termales y Brumas</a></li>
+                                        <li><a href="#">Bálsamos Labiales</a></li>
+                                    </ul>
+                                    
+                                    <h3 class="espacio-arriba">Dermocosmética</h3>
+                                    <h3 class="espacio-arriba">Productos Coreanos</h3>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Protección Solar</h3>
+                                    <ul>
+                                        <li><a href="#">Facial</a></li>
+                                        <li><a href="#">Corporal</a></li>
+                                        <li><a href="#">Autobronceadores</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Tratamiento</h3>
+                                    <ul>
+                                        <li><a href="#">Serums y Ampollas</a></li>
+                                        <li><a href="#">Mascarillas</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="tiene-desplegable">
+                        <a href="#" class="enlace-menu">Marcas <i class="fa-solid fa-chevron-down flecha"></i></a>
+                        
+                        <div class="megamenu-desplegable">
+                            <div class="grid-megamenu col-3 max-ancho-marcas">
+                                <div class="columna-menu">
+                                    <h3>K-Beauty</h3>
+                                    <ul>
+                                        <li><a href="#">Laneige</a></li>
+                                        <li><a href="#">Tocobo</a></li>
+                                        <li><a href="#">Skin1004</a></li>
+                                        <li><a href="#">I'm From</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Dermatológicas</h3>
+                                    <ul>
+                                        <li><a href="#">La Roche Posay</a></li>
+                                        <li><a href="#">Bioderma</a></li>
+                                        <li><a href="#">ISDIN</a></li>
+                                        <li><a href="#">CeraVe</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="columna-menu">
+                                    <h3>Clínicas & Globales</h3>
+                                    <ul>
+                                        <li><a href="#">Neutrogena</a></li>
+                                        <li><a href="#">Sesderma</a></li>
+                                        <li><a href="#">The Ordinary</a></li>
+                                        <li><a href="#">Summer Fridays</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#" class="enlace-menu">Rutinas y Packs</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contenedor-contacto-principal">
+    <section class="seccion-contacto">
+        <div class="contacto-grid">
+            
+            <div class="contacto-info animate-fade-in">
+                <span class="subtitulo-marca">Hola!</span>
+                <h2>Estamos aquí para ayudarte</h2>
+                <p class="descripcion-contacto">¿Tienes dudas sobre tu rutina de skincare, un pedido o quieres saber más sobre nuestras marcas de K-Beauty? Escríbenos y nuestro equipo te responderá lo antes posible.</p>
+                
+                <div class="bloques-atencion">
+                    <div class="tarjeta-atencion">
+                        <div class="icono-atencion"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="texto-atencion">
+                            <h3>WhatsApp de Atención</h3>
+                            <p><a href="#" class="enlace-contacto-accion">+51 900 000 000</a></p>
+                            <span>Respuestas rápidas en minutos</span>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-atencion">
+                        <div class="icono-atencion"><i class="fa-regular fa-envelope"></i></div>
+                        <div class="texto-atencion">
+                            <h3>Correo de Soporte</h3>
+                            <p><a href="mailto:soporte@auraglow.com" class="enlace-contacto-accion">soporte@auraglow.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-atencion">
+                        <div class="icono-atencion"><i class="fa-regular fa-clock"></i></div>
+                        <div class="texto-atencion">
+                            <h3>Horario de Atención</h3>
+                            <p>Lunes a Sábado: 9:00 am - 8:00 pm</p>
+                            <p>Domingos: 10:00 am - 4:00 pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contacto-formulario animate-slide-up">
+                <h3>Envíanos un mensaje</h3>
+                <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+                
+                <form action="#" method="POST" class="form-body">
+                    <div class="grupo-input">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. María Alva" required class="input-contacto">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required class="input-contacto">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="asunto">¿En qué podemos ayudarte?</label>
+                        <select id="asunto" name="asunto" class="input-contacto select-contacto" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="pedido">Estado de mi pedido / Envío</option>
+                            <option value="rutina">Asesoría de rutina Skincare</option>
+                            <option value="marcas">Consulta sobre productos o marcas</option>
+                            <option value="otro">Otro motivo</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="mensaje">Tu Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu consulta detalladamente aquí..." required class="input-contacto textarea-contacto"></textarea>
+                    </div>
+
+                    <button type="submit" class="boton-enviar-contacto">
+                        <span>Enviar Mensaje</span>
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<!-- PIE DE PÁGINA (FOOTER) -->
+<footer class="main-footer">
+    <!-- Caja Flotante de Suscripción -->
+    <div class="footer-newsletter">
+        <h2>Sé el primero!</h2>
+        <p class="newsletter-subtitle">Recibe las novedades en ofertas y lanzamientos.</p>
+        
+        <form id="newsletter-form" class="newsletter-form">
+            <div class="input-group">
+                <input type="email" id="newsletter-email" placeholder="Dirección de correo electrónico" required>
+                <button type="submit" aria-label="Enviar"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </form>
+        <!-- Mensaje de éxito oculto por defecto -->
+        <p id="newsletter-message" class="newsletter-success-msg"></p>
+        
+        <p class="newsletter-legal">
+            Al suscribirte, aceptas recibir comunicaciones informativas y promocionales <br>
+            de Aura Glow. Consulta nuestros términos y política de privacidad.
+        </p>
+    </div>
+
+    <!-- Contenido Principal del Footer -->
+<div class="footer-container">
+    <!-- Columna Marca y Redes -->
+    <div class="footer-brand-col">
+        <a href="index.html" class="footer-logo-link" aria-label="Ir a la página de inicio">
+            <div class="footer-logo-svg">
+                <img src="img/logo/Logo_enBlanco.svg" alt="Aura Glow" class="logo-footer-img">
+            </div>
+        </a>
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <!-- Columna 1: Enlaces -->
+        <div class="footer-links-col">
+            <h3>Sobre Aura Glow</h3>
+            <ul>
+                <!-- Este enlace nos llevará a la nueva página que crearemos -->
+                <li><a href="quienes-somos.html">Quienes somos</a></li>
+                <li><a href="#">Tiendas</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 2: Enlaces -->
+        <div class="footer-links-col">
+            <h3>Servicio al cliente</h3>
+            <ul>
+                <li><a href="#">Cómo comprar</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Cambios y Devoluciones</a></li>
+                <li><a href="#">Medios de pago</a></li>
+                <li><a href="Contactanos.html">Contáctanos</a></li>
+                <li><a href="#">Asesorias y Ventas</a></li>
+                <li><a href="#">(+51) 900 000 000</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Enlaces -->
+        <div class="footer-links-col">
+            <h3>Legales</h3>
+            <ul>
+                <li><a href="#">Terminos y Condiciones</a></li>
+                <li><a href="#">Condiciones de Envío</a></li>
+                <li><a href="#">Políticas de Privacidad</a></li>
+                <li><a href="#">Políticas de Devolución</a></li>
+                <li><a href="#">Terminos de Campaña</a></li>
+                <li><a href="#">Libro de reclamaciones</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- sirve para que carguen los iconos de redes sociales y flechas -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<div class="modal-cuenta-overlay" id="modalCuenta">
+    <div class="modal-cuenta-contenedor">
+        <button class="modal-cuenta-cerrar" id="btn-cerrar-modal">&times;</button>
+        
+        <div class="modal-cuenta-contenido" id="vista-login">
+            <h2>Iniciar Sesión</h2>
+            <p>Ingresa a tu cuenta de Aura Glow</p>
+            
+            <form action="#" class="form-ajax-demo" id="form-login">
+                <div class="grupo-input">
+                    <label for="login-email">Correo electrónico *</label>
+                    <input type="email" id="login-email" placeholder="ejemplo@correo.com" required>
+                </div>
+                
+                <div class="grupo-input">
+                    <label for="login-password">Contraseña *</label>
+                    <input type="password" id="login-password" placeholder="Ingresa tu contraseña" required>
+                </div>
+                
+                <div class="opciones-recuperar">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="button" class="btn-iniciar-sesion">INGRESAR</button>
+            </form>
+            
+            <div class="modal-cuenta-pie">
+                <span>¿No tienes una cuenta?</span>
+                <a href="#" class="enlace-cambio-vista" id="ir-a-registro">Regístrate aquí</a>
+            </div>
+        </div>
+
+        <div class="modal-cuenta-contenido d-none" id="vista-registro">
+            <h2>Crear Cuenta</h2>
+            <p>Regístrate para una experiencia personalizada</p>
+            
+            <form action="#" class="form-ajax-demo" id="form-registro">
+                <div class="grupo-input">
+                    <label for="reg-nombre">Nombre *</label>
+                    <input type="text" id="reg-nombre" placeholder="Tu primer nombre" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="reg-apellido">Apellidos *</label>
+                    <input type="text" id="reg-apellido" placeholder="Tus dos apellidos" required>
+                </div>
+
+                <div class="grid-inputs-mitad">
+                    <div class="grupo-input">
+                        <label for="reg-dni">DNI *</label>
+                        <input type="text" id="reg-dni" placeholder="8 dígitos" maxlength="8" pattern="[0-9]{8}" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="reg-nacimiento">F. Nacimiento *</label>
+                        <input type="date" id="reg-nacimiento" required>
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="reg-email">Correo electrónico *</label>
+                    <input type="email" id="reg-email" placeholder="ejemplo@correo.com" required>
+                </div>
+                
+                <div class="grupo-input">
+                    <label for="reg-password">Contraseña *</label>
+                    <input type="password" id="reg-password" placeholder="Crea una contraseña segura" required>
+                </div>
+                
+                <button type="button" class="btn-iniciar-sesion">REGISTRARME</button>
+            </form>
+            
+            <div class="modal-cuenta-pie">
+                <span>¿Ya tienes cuenta?</span>
+                <a href="#" class="enlace-cambio-vista" id="ir-a-login">Inicia sesión aquí</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>
